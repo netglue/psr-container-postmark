@@ -1,5 +1,7 @@
 # PSR-11 Container Factories for Postmark API Clients
 
+![PHPUnit Test Suite](https://github.com/netglue/psr-container-postmark/workflows/PHPUnit%20Test%20Suite/badge.svg)
+[![codecov](https://codecov.io/gh/netglue/psr-container-postmark/branch/master/graph/badge.svg)](https://codecov.io/gh/netglue/psr-container-postmark)
 ### Introduction
 
 This very small library provides [PSR-11](https://www.php-fig.org/psr/psr-11/) compatible factories for creating
