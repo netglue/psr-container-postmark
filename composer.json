@@ -46,7 +46,7 @@
     },
     "extra": {
         "laminas": {
-            "component": "Netglue\\PsrContainer\\Postmark\\ConfigProvider"
+            "config-provider": "Netglue\\PsrContainer\\Postmark\\ConfigProvider"
         }
     }
 }
