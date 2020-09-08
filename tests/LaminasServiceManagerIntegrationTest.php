@@ -60,10 +60,10 @@ class LaminasServiceManagerIntegrationTest extends TestCase
     public function testServiceManagerCanCreateExpectedInstances() : void
     {
         $this->setupDependencies();
-        $this->assertInstanceOf(PostmarkClient::class, $this->container->get('RegularServerClient'));
-        $this->assertInstanceOf(PostmarkClient::class, $this->container->get('ServerClientCallStatic'));
-        $this->assertInstanceOf(PostmarkAdminClient::class, $this->container->get('RegularAccountClient'));
-        $this->assertInstanceOf(PostmarkAdminClient::class, $this->container->get('AccountClientCallStatic'));
+        self::assertInstanceOf(PostmarkClient::class, $this->container->get('RegularServerClient'));
+        self::assertInstanceOf(PostmarkClient::class, $this->container->get('ServerClientCallStatic'));
+        self::assertInstanceOf(PostmarkAdminClient::class, $this->container->get('RegularAccountClient'));
+        self::assertInstanceOf(PostmarkAdminClient::class, $this->container->get('AccountClientCallStatic'));
     }
 
     public function testThatShippedConfigProviderWillYieldServicesUsingFqcn() : void
@@ -81,7 +81,7 @@ class LaminasServiceManagerIntegrationTest extends TestCase
         $dependencies['services']['config'] = $config;
         $container = new ServiceManager($dependencies);
 
-        $this->assertInstanceOf(PostmarkClient::class, $container->get(PostmarkClient::class));
-        $this->assertInstanceOf(PostmarkAdminClient::class, $container->get(PostmarkAdminClient::class));
+        self::assertInstanceOf(PostmarkClient::class, $container->get(PostmarkClient::class));
+        self::assertInstanceOf(PostmarkAdminClient::class, $container->get(PostmarkAdminClient::class));
     }
 }
