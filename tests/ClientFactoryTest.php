@@ -9,7 +9,6 @@ use Netglue\PsrContainer\Postmark\Exception\MissingServerKey;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Postmark\PostmarkClient;
-use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Container\ContainerInterface;
 
 class ClientFactoryTest extends TestCase
@@ -33,6 +32,7 @@ class ClientFactoryTest extends TestCase
         ];
     }
 
+    /** @param mixed[] $config */
     private function containerWillReturnConfig(array $config) : void
     {
         $this->container

@@ -31,6 +31,7 @@ class AdminClientFactoryTest extends TestCase
         ];
     }
 
+    /** @param mixed[] $config */
     private function containerWillReturnConfig(array $config) : void
     {
         $this->container
