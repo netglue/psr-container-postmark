@@ -28,7 +28,7 @@
         }
     },
     "require-dev": {
-        "doctrine/coding-standard": "^7.0",
+        "doctrine/coding-standard": "^8.0",
         "laminas/laminas-component-installer": "^2.1",
         "laminas/laminas-servicemanager": "^3.4",
         "phpunit/phpunit": "^9.0",

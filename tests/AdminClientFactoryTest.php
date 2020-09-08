@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Netglue\PsrContainer\PostmarkTest;
@@ -15,14 +16,14 @@ class AdminClientFactoryTest extends TestCase
     /** @var MockObject|ContainerInterface */
     private $container;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->container = $this->createMock(ContainerInterface::class);
     }
 
     /** @return mixed[][] */
-    public function configResultingInException() : iterable
+    public function configResultingInException(): iterable
     {
         return [
             'Empty Array' => [[]],
@@ -32,7 +33,7 @@ class AdminClientFactoryTest extends TestCase
     }
 
     /** @param mixed[] $config */
-    private function containerWillReturnConfig(array $config) : void
+    private function containerWillReturnConfig(array $config): void
     {
         $this->container
             ->method('has')
@@ -50,7 +51,7 @@ class AdminClientFactoryTest extends TestCase
      *
      * @dataProvider configResultingInException
      */
-    public function testThatAMissingAccountTokenWillCauseAnException(array $config) : void
+    public function testThatAMissingAccountTokenWillCauseAnException(array $config): void
     {
         $this->containerWillReturnConfig($config);
 
@@ -61,7 +62,7 @@ class AdminClientFactoryTest extends TestCase
         $factory->__invoke($this->container);
     }
 
-    public function testThatAnAdminClientCanBeConstructedWithValidConfiguration() : void
+    public function testThatAnAdminClientCanBeConstructedWithValidConfiguration(): void
     {
         $config = [
             'postmark' => ['account_token' => 'Whatever'],
@@ -72,7 +73,7 @@ class AdminClientFactoryTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    public function testThatCallStaticWillUseTheCorrectConfiguration() : void
+    public function testThatCallStaticWillUseTheCorrectConfiguration(): void
     {
         $config = [
             'something_else' => ['account_token' => 'Whatever'],

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Netglue\PsrContainer\Postmark;
@@ -6,11 +7,12 @@ namespace Netglue\PsrContainer\Postmark;
 use Netglue\PsrContainer\Postmark\Exception\MissingServerKey;
 use Postmark\PostmarkClient;
 use Psr\Container\ContainerInterface;
+
 use function sprintf;
 
 class ClientFactory extends BaseFactory
 {
-    public function __invoke(ContainerInterface $container) : PostmarkClient
+    public function __invoke(ContainerInterface $container): PostmarkClient
     {
         $config = $this->retrieveConfig($container);
         $token  = $config['server_token'] ?? null;

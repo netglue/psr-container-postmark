@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Netglue\PsrContainer\PostmarkTest;
@@ -10,6 +11,7 @@ use Netglue\PsrContainer\Postmark\ConfigProvider;
 use PHPUnit\Framework\TestCase;
 use Postmark\PostmarkAdminClient;
 use Postmark\PostmarkClient;
+
 use function array_merge;
 
 class LaminasServiceManagerIntegrationTest extends TestCase
@@ -17,13 +19,13 @@ class LaminasServiceManagerIntegrationTest extends TestCase
     /** @var ServiceManager */
     private $container;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->container = new ServiceManager();
     }
 
-    private function setupDependencies() : void
+    private function setupDependencies(): void
     {
         $this->container->setFactory(
             'RegularServerClient',
@@ -57,7 +59,7 @@ class LaminasServiceManagerIntegrationTest extends TestCase
         ]);
     }
 
-    public function testServiceManagerCanCreateExpectedInstances() : void
+    public function testServiceManagerCanCreateExpectedInstances(): void
     {
         $this->setupDependencies();
         self::assertInstanceOf(PostmarkClient::class, $this->container->get('RegularServerClient'));
@@ -66,7 +68,7 @@ class LaminasServiceManagerIntegrationTest extends TestCase
         self::assertInstanceOf(PostmarkAdminClient::class, $this->container->get('AccountClientCallStatic'));
     }
 
-    public function testThatShippedConfigProviderWillYieldServicesUsingFqcn() : void
+    public function testThatShippedConfigProviderWillYieldServicesUsingFqcn(): void
     {
         $config = array_merge(
             (new ConfigProvider())(),

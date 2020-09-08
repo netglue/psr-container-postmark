@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Netglue\PsrContainer\Postmark;
@@ -9,7 +10,7 @@ use Postmark\PostmarkClient;
 class ConfigProvider
 {
     /** @return mixed[] */
-    public function __invoke() : array
+    public function __invoke(): array
     {
         return [
             'dependencies' => [

@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Netglue\PsrContainer\Postmark;
 
 use Netglue\PsrContainer\Postmark\Exception\BadMethodCall;
 use Psr\Container\ContainerInterface;
+
 use function array_key_exists;
 
 abstract class BaseFactory
@@ -33,7 +35,7 @@ abstract class BaseFactory
     }
 
     /** @return mixed[] */
-    protected function retrieveConfig(ContainerInterface $container) : array
+    protected function retrieveConfig(ContainerInterface $container): array
     {
         $config = $container->has('config') ? $container->get('config') : [];
 

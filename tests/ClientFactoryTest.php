@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Netglue\PsrContainer\PostmarkTest;
@@ -16,14 +17,14 @@ class ClientFactoryTest extends TestCase
     /** @var MockObject|ContainerInterface */
     private $container;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->container = $this->createMock(ContainerInterface::class);
     }
 
     /** @return mixed[][] */
-    public function configResultingInException() : iterable
+    public function configResultingInException(): iterable
     {
         return [
             'Empty Array' => [[]],
@@ -33,7 +34,7 @@ class ClientFactoryTest extends TestCase
     }
 
     /** @param mixed[] $config */
-    private function containerWillReturnConfig(array $config) : void
+    private function containerWillReturnConfig(array $config): void
     {
         $this->container
             ->method('has')
@@ -51,7 +52,7 @@ class ClientFactoryTest extends TestCase
      *
      * @dataProvider configResultingInException
      */
-    public function testThatAMissingServerTokenWillCauseAnException(array $config) : void
+    public function testThatAMissingServerTokenWillCauseAnException(array $config): void
     {
         $this->containerWillReturnConfig($config);
         $factory = new ClientFactory();
@@ -61,7 +62,7 @@ class ClientFactoryTest extends TestCase
         $factory->__invoke($this->container);
     }
 
-    public function testThatGivenAServerTokenConstructionWillBePossible() : void
+    public function testThatGivenAServerTokenConstructionWillBePossible(): void
     {
         $config = [
             'postmark' => ['server_token' => 'Whatever'],
@@ -72,7 +73,7 @@ class ClientFactoryTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    public function testThatADifferentTopLevelConfigKeyCanBeUsed() : void
+    public function testThatADifferentTopLevelConfigKeyCanBeUsed(): void
     {
         $config = [
             'something_else' => ['server_token' => 'Whatever'],
@@ -83,7 +84,7 @@ class ClientFactoryTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    public function testThatCallStaticWillThrowAnExceptionIfAContainerIsNotTheFirstArgument() : void
+    public function testThatCallStaticWillThrowAnExceptionIfAContainerIsNotTheFirstArgument(): void
     {
         $this->expectException(BadMethodCall::class);
         $this->expectExceptionMessage('The first argument to __callStatic must be an instance of ContainerInterface');
@@ -91,7 +92,7 @@ class ClientFactoryTest extends TestCase
         ClientFactory::whatever();
     }
 
-    public function testThatCallStaticCanSuccessfullyReturnAClientWhenConfigurationIsSatisfied() : void
+    public function testThatCallStaticCanSuccessfullyReturnAClientWhenConfigurationIsSatisfied(): void
     {
         $config = [
             'something_else' => ['server_token' => 'Whatever'],
