@@ -14,7 +14,7 @@
     },
     "require": {
         "php": ">=7.3",
-        "wildbit/postmark-php": "^2.9",
+        "wildbit/postmark-php": "^2.9 || ^3.0",
         "psr/container": "^1.0"
     },
     "autoload": {
