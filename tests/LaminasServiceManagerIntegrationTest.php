@@ -34,7 +34,7 @@ class LaminasServiceManagerIntegrationTest extends TestCase
 
         $this->container->setFactory(
             'ServerClientCallStatic',
-            [ClientFactory::class, 'postmark_static_test']
+            new ClientFactory('postmark_static_test')
         );
 
         $this->container->setFactory(
@@ -44,7 +44,7 @@ class LaminasServiceManagerIntegrationTest extends TestCase
 
         $this->container->setFactory(
             'AccountClientCallStatic',
-            [AdminClientFactory::class, 'postmark_static_test']
+            new AdminClientFactory('postmark_static_test')
         );
 
         $this->container->setService('config', [
@@ -80,7 +80,7 @@ class LaminasServiceManagerIntegrationTest extends TestCase
             ]
         );
         $dependencies = $config['dependencies'];
-        $dependencies['services']['config'] = $config;
+        $dependencies['services'] = ['config' => $config];
         $container = new ServiceManager($dependencies);
 
         self::assertInstanceOf(PostmarkClient::class, $container->get(PostmarkClient::class));
