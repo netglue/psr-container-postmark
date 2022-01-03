@@ -13,7 +13,7 @@ use function is_numeric;
 use function is_string;
 use function sprintf;
 
-class AdminClientFactory extends BaseFactory
+final class AdminClientFactory extends BaseFactory
 {
     public function __invoke(ContainerInterface $container): PostmarkAdminClient
     {
