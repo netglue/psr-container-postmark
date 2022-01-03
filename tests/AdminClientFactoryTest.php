@@ -13,7 +13,7 @@ use Psr\Container\ContainerInterface;
 
 class AdminClientFactoryTest extends TestCase
 {
-    /** @var MockObject|ContainerInterface */
+    /** @var MockObject&ContainerInterface */
     private $container;
 
     protected function setUp(): void
@@ -22,8 +22,8 @@ class AdminClientFactoryTest extends TestCase
         $this->container = $this->createMock(ContainerInterface::class);
     }
 
-    /** @return mixed[][] */
-    public function configResultingInException(): iterable
+    /** @return array<string, array{0: mixed[]}> */
+    public function configResultingInException(): array
     {
         return [
             'Empty Array' => [[]],
@@ -32,7 +32,7 @@ class AdminClientFactoryTest extends TestCase
         ];
     }
 
-    /** @param mixed[] $config */
+    /** @param array<array-key, mixed> $config */
     private function containerWillReturnConfig(array $config): void
     {
         $this->container
@@ -47,7 +47,7 @@ class AdminClientFactoryTest extends TestCase
     }
 
     /**
-     * @param mixed[] $config
+     * @param array<array-key, mixed> $config
      *
      * @dataProvider configResultingInException
      */
@@ -70,7 +70,7 @@ class AdminClientFactoryTest extends TestCase
         $this->containerWillReturnConfig($config);
         $factory = new AdminClientFactory();
         $factory->__invoke($this->container);
-        $this->addToAssertionCount(1);
+        self::assertTrue(true);
     }
 
     public function testThatCallStaticWillUseTheCorrectConfiguration(): void

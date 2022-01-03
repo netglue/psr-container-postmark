@@ -31,8 +31,11 @@
         "doctrine/coding-standard": "^9.0",
         "laminas/laminas-component-installer": "^2.4",
         "laminas/laminas-servicemanager": "^3.6",
+        "lctrs/psalm-psr-container-plugin": "^1.6",
         "phpunit/phpunit": "^9.5",
-        "roave/security-advisories": "dev-latest"
+        "psalm/plugin-phpunit": "^0.16.1",
+        "roave/security-advisories": "dev-latest",
+        "vimeo/psalm": "^4.17"
     },
     "scripts": {
         "check": [

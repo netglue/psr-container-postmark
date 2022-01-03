@@ -8,6 +8,9 @@ use Netglue\PsrContainer\Postmark\Exception\MissingServerKey;
 use Postmark\PostmarkClient;
 use Psr\Container\ContainerInterface;
 
+use function assert;
+use function is_numeric;
+use function is_string;
 use function sprintf;
 
 class ClientFactory extends BaseFactory
@@ -16,11 +19,12 @@ class ClientFactory extends BaseFactory
     {
         $config = $this->retrieveConfig($container);
         $token  = $config['server_token'] ?? null;
-        if (empty($token)) {
+        if (empty($token) || ! is_string($token)) {
             throw MissingServerKey::withConfigPath(sprintf('[%s][server_token]', $this->section));
         }
 
         $timeout = $config['server_timeout'] ?? self::DEFAULT_API_TIMEOUT;
+        assert(is_numeric($timeout));
 
         return new PostmarkClient($token, (int) $timeout);
     }

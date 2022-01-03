@@ -9,7 +9,7 @@ use Postmark\PostmarkClient;
 
 class ConfigProvider
 {
-    /** @return mixed[] */
+    /** @return array{dependencies: array{factories: array<class-string, class-string>}} */
     public function __invoke(): array
     {
         return [

@@ -14,7 +14,7 @@ use Psr\Container\ContainerInterface;
 
 class ClientFactoryTest extends TestCase
 {
-    /** @var MockObject|ContainerInterface */
+    /** @var MockObject&ContainerInterface */
     private $container;
 
     protected function setUp(): void
@@ -23,8 +23,8 @@ class ClientFactoryTest extends TestCase
         $this->container = $this->createMock(ContainerInterface::class);
     }
 
-    /** @return mixed[][] */
-    public function configResultingInException(): iterable
+    /** @return array<string, array{0: mixed[]}> */
+    public function configResultingInException(): array
     {
         return [
             'Empty Array' => [[]],
@@ -33,7 +33,7 @@ class ClientFactoryTest extends TestCase
         ];
     }
 
-    /** @param mixed[] $config */
+    /** @param array<array-key, mixed> $config */
     private function containerWillReturnConfig(array $config): void
     {
         $this->container
@@ -48,7 +48,7 @@ class ClientFactoryTest extends TestCase
     }
 
     /**
-     * @param mixed[] $config
+     * @param array<array-key, mixed> $config
      *
      * @dataProvider configResultingInException
      */
@@ -70,7 +70,7 @@ class ClientFactoryTest extends TestCase
         $this->containerWillReturnConfig($config);
         $factory = new ClientFactory();
         $factory->__invoke($this->container);
-        $this->addToAssertionCount(1);
+        self::assertTrue(true);
     }
 
     public function testThatADifferentTopLevelConfigKeyCanBeUsed(): void
@@ -81,7 +81,7 @@ class ClientFactoryTest extends TestCase
         $this->containerWillReturnConfig($config);
         $factory = new ClientFactory('something_else');
         $factory->__invoke($this->container);
-        $this->addToAssertionCount(1);
+        self::assertTrue(true);
     }
 
     public function testThatCallStaticWillThrowAnExceptionIfAContainerIsNotTheFirstArgument(): void

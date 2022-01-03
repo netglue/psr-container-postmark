@@ -17,6 +17,6 @@ class MissingAccountKey extends RuntimeException
             $path
         );
 
-        return new static($message, 500);
+        return new self($message, 500);
     }
 }
