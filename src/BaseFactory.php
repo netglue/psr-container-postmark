@@ -13,6 +13,7 @@ use function array_key_exists;
 use function assert;
 use function is_array;
 
+/** @internal */
 abstract class BaseFactory
 {
     public const DEFAULT_CONFIG_SECTION = 'postmark';
