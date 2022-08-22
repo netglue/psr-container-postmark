@@ -10,7 +10,11 @@
         }
     ],
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "laminas/laminas-component-installer": true
+        }
     },
     "require": {
         "php": "^7.3||~8.0||~8.1",
@@ -29,13 +33,13 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^9.0",
-        "laminas/laminas-component-installer": "^2.4",
-        "laminas/laminas-servicemanager": "^3.6",
+        "laminas/laminas-component-installer": "^2.5.1",
+        "laminas/laminas-servicemanager": "^3.7.0",
         "lctrs/psalm-psr-container-plugin": "^1.6",
-        "phpunit/phpunit": "^9.5",
-        "psalm/plugin-phpunit": "^0.16.1 || ^0.17.0",
+        "phpunit/phpunit": "^9.5.23",
+        "psalm/plugin-phpunit": "^0.17.0",
         "roave/security-advisories": "dev-latest",
-        "vimeo/psalm": "^4.17"
+        "vimeo/psalm": "^4.26.0"
     },
     "scripts": {
         "check": [
