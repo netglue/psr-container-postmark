@@ -19,8 +19,7 @@ abstract class BaseFactory
     public const DEFAULT_CONFIG_SECTION = 'postmark';
     public const DEFAULT_API_TIMEOUT    = 30;
 
-    /** @var string */
-    protected $section;
+    protected string $section;
 
     final public function __construct(string $section = self::DEFAULT_CONFIG_SECTION)
     {
