@@ -32,7 +32,7 @@
         }
     },
     "require-dev": {
-        "doctrine/coding-standard": "^9.0",
+        "doctrine/coding-standard": "^9.0 || ^10.0",
         "laminas/laminas-component-installer": "^2.8.0",
         "laminas/laminas-servicemanager": "^3.16.0",
         "lctrs/psalm-psr-container-plugin": "^1.6",
