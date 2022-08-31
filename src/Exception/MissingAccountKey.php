@@ -14,7 +14,7 @@ class MissingAccountKey extends RuntimeException
     {
         $message = sprintf(
             'Expected a non-empty string to use as the account api key at %s',
-            $path
+            $path,
         );
 
         return new self($message, 500);

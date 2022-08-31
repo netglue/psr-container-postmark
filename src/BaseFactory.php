@@ -38,7 +38,7 @@ abstract class BaseFactory
     {
         if (! array_key_exists(0, $arguments) || ! $arguments[0] instanceof ContainerInterface) {
             throw new BadMethodCall(
-                'The first argument to __callStatic must be an instance of ContainerInterface'
+                'The first argument to __callStatic must be an instance of ContainerInterface',
             );
         }
 
