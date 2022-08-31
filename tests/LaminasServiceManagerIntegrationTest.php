@@ -29,22 +29,22 @@ class LaminasServiceManagerIntegrationTest extends TestCase
     {
         $this->container->setFactory(
             'RegularServerClient',
-            ClientFactory::class
+            ClientFactory::class,
         );
 
         $this->container->setFactory(
             'ServerClientCallStatic',
-            new ClientFactory('postmark_static_test')
+            new ClientFactory('postmark_static_test'),
         );
 
         $this->container->setFactory(
             'RegularAccountClient',
-            AdminClientFactory::class
+            AdminClientFactory::class,
         );
 
         $this->container->setFactory(
             'AccountClientCallStatic',
-            new AdminClientFactory('postmark_static_test')
+            new AdminClientFactory('postmark_static_test'),
         );
 
         $this->container->setService('config', [
@@ -77,7 +77,7 @@ class LaminasServiceManagerIntegrationTest extends TestCase
                     'server_token' => 'Foo',
                     'account_token' => 'Bar',
                 ],
-            ]
+            ],
         );
         $dependencies = $config['dependencies'];
         $dependencies['services'] = ['config' => $config];
