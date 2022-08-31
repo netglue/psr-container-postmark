@@ -14,7 +14,7 @@ use Psr\Container\ContainerInterface;
 class AdminClientFactoryTest extends TestCase
 {
     /** @var MockObject&ContainerInterface */
-    private $container;
+    private ContainerInterface $container;
 
     protected function setUp(): void
     {
@@ -57,7 +57,9 @@ class AdminClientFactoryTest extends TestCase
 
         $factory = new AdminClientFactory();
         $this->expectException(MissingAccountKey::class);
-        $this->expectExceptionMessage('Expected a non-empty string to use as the account api key at [postmark][account_token]');
+        $this->expectExceptionMessage(
+            'Expected a non-empty string to use as the account api key at [postmark][account_token]',
+        );
 
         $factory->__invoke($this->container);
     }

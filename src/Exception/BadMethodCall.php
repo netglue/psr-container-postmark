@@ -6,6 +6,7 @@ namespace Netglue\PsrContainer\Postmark\Exception;
 
 use BadMethodCallException;
 
+/** @final */
 class BadMethodCall extends BadMethodCallException
 {
 }

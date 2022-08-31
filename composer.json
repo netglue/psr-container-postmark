@@ -12,8 +12,7 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "laminas/laminas-component-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "require": {
@@ -33,10 +32,9 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^10.0",
-        "laminas/laminas-component-installer": "^2.8.0",
         "laminas/laminas-servicemanager": "^3.16.0",
         "lctrs/psalm-psr-container-plugin": "^1.6",
-        "phpunit/phpunit": "^9.5.23",
+        "phpunit/phpunit": "^9.5.24",
         "psalm/plugin-phpunit": "^0.17.0",
         "roave/security-advisories": "dev-latest",
         "vimeo/psalm": "^4.26.0"

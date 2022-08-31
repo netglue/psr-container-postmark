@@ -15,7 +15,7 @@ use Psr\Container\ContainerInterface;
 class ClientFactoryTest extends TestCase
 {
     /** @var MockObject&ContainerInterface */
-    private $container;
+    private ContainerInterface $container;
 
     protected function setUp(): void
     {
@@ -57,7 +57,9 @@ class ClientFactoryTest extends TestCase
         $this->containerWillReturnConfig($config);
         $factory = new ClientFactory();
         $this->expectException(MissingServerKey::class);
-        $this->expectExceptionMessage('Expected a non-empty string to use as the server api key at [postmark][server_token]');
+        $this->expectExceptionMessage(
+            'Expected a non-empty string to use as the server api key at [postmark][server_token]',
+        );
 
         $factory->__invoke($this->container);
     }
