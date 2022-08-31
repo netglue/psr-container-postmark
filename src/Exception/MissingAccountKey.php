@@ -8,6 +8,7 @@ use RuntimeException;
 
 use function sprintf;
 
+/** @final */
 class MissingAccountKey extends RuntimeException
 {
     public static function withConfigPath(string $path): self

@@ -6,18 +6,15 @@
     <arg name="cache" value=".php_cs.cache"/>
     <arg name="colors"/>
 
-    <!-- Ignore warnings, show progress of the run and show sniff names -->
-    <arg value="nps"/>
+    <!-- show progress of the run and show sniff names -->
+    <arg value="ps"/>
 
     <!-- Paths to check -->
     <file>src</file>
     <file>tests</file>
 
     <!-- Inherit rules from Doctrine Coding Standard -->
-    <rule ref="Doctrine">
-        <!-- Whilst this lib is compatible with 7.3, exclude this sniff -->
-        <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint" />
-    </rule>
+    <rule ref="Doctrine" />
 
     <rule ref="Generic.Formatting.MultipleStatementAlignment.NotSame">
         <severity>0</severity>

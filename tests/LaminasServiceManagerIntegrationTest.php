@@ -16,8 +16,7 @@ use function array_merge;
 
 class LaminasServiceManagerIntegrationTest extends TestCase
 {
-    /** @var ServiceManager */
-    private $container;
+    private ServiceManager $container;
 
     protected function setUp(): void
     {
