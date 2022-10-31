@@ -1,7 +1,8 @@
 # PSR-11 Container Factories for Postmark API Clients
 
 ![PHPUnit Test Suite](https://github.com/netglue/psr-container-postmark/workflows/Continuous%20Integration/badge.svg)
-[![codecov](https://codecov.io/gh/netglue/psr-container-postmark/branch/main/graph/badge.svg)](https://codecov.io/gh/netglue/psr-container-postmark)
+[![Type Coverage](https://shepherd.dev/github/netglue/psr-container-postmark/coverage.svg)](https://shepherd.dev/github/netglue/psr-container-postmark)
+
 ### Introduction
 
 This very small library provides [PSR-11](https://www.php-fig.org/psr/psr-11/) compatible factories for creating
@@ -68,4 +69,3 @@ Given the above container setup, you'd need to specify two top-level configurati
 Because I use Laminas _(Formerly Zend)_ components a lot, this lib will auto-wire dependencies _(if you choose to allow it)_ during composer installation thanks to [laminas-component-installer](https://docs.laminas.dev/laminas-component-installer/). 
 
 _fin._
-
