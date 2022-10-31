@@ -19,22 +19,14 @@ abstract class BaseFactory
     public const DEFAULT_CONFIG_SECTION = 'postmark';
     public const DEFAULT_API_TIMEOUT    = 30;
 
-    protected string $section;
-
-    final public function __construct(string $section = self::DEFAULT_CONFIG_SECTION)
+    final public function __construct(protected string $section = self::DEFAULT_CONFIG_SECTION)
     {
-        $this->section = $section;
     }
 
-    /** @return PostmarkClient|PostmarkAdminClient */
-    abstract public function __invoke(ContainerInterface $container);
+    abstract public function __invoke(ContainerInterface $container): PostmarkClient|PostmarkAdminClient;
 
-    /**
-     * @param array<array-key, mixed> $arguments
-     *
-     * @return PostmarkClient|PostmarkAdminClient
-     */
-    final public static function __callStatic(string $name, array $arguments)
+    /** @param array<array-key, mixed> $arguments */
+    final public static function __callStatic(string $name, array $arguments): PostmarkClient|PostmarkAdminClient
     {
         if (! array_key_exists(0, $arguments) || ! $arguments[0] instanceof ContainerInterface) {
             throw new BadMethodCall(
