@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace Netglue\PsrContainer\Postmark;
 
+use Laminas\ServiceManager\ConfigInterface;
 use Postmark\PostmarkAdminClient;
 use Postmark\PostmarkClient;
 
-/** @final */
+/**
+ * @psalm-import-type ServiceManagerConfigurationType from ConfigInterface
+ * @final
+ */
 class ConfigProvider
 {
-    /** @return array{dependencies: array{factories: array<class-string, class-string>}} */
+    /** @return ServiceManagerConfigurationType */
     public function __invoke(): array
     {
         return [
