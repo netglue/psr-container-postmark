@@ -14,6 +14,7 @@ use Postmark\PostmarkClient;
 
 use function array_merge;
 
+/** @psalm-import-type ServiceManagerConfiguration from ServiceManager */
 class LaminasServiceManagerIntegrationTest extends TestCase
 {
     private ServiceManager $container;
@@ -21,6 +22,7 @@ class LaminasServiceManagerIntegrationTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->container = new ServiceManager();
     }
 
@@ -78,8 +80,10 @@ class LaminasServiceManagerIntegrationTest extends TestCase
                 ],
             ],
         );
+        /** @psalm-var ServiceManagerConfiguration $dependencies */
         $dependencies = $config['dependencies'];
-        $dependencies['services'] = ['config' => $config];
+        unset($dependencies['services']['config']);
+        $dependencies['services']['config'] = $config;
         $container = new ServiceManager($dependencies);
 
         self::assertInstanceOf(PostmarkClient::class, $container->get(PostmarkClient::class));
