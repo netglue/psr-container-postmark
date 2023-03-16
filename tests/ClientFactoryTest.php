@@ -7,6 +7,7 @@ namespace Netglue\PsrContainer\PostmarkTest;
 use Netglue\PsrContainer\Postmark\ClientFactory;
 use Netglue\PsrContainer\Postmark\Exception\BadMethodCall;
 use Netglue\PsrContainer\Postmark\Exception\MissingServerKey;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Postmark\PostmarkClient;
@@ -25,7 +26,7 @@ class ClientFactoryTest extends TestCase
     }
 
     /** @return array<string, array{0: mixed[]}> */
-    public function configResultingInException(): array
+    public static function configResultingInException(): array
     {
         return [
             'Empty Array' => [[]],
@@ -48,11 +49,8 @@ class ClientFactoryTest extends TestCase
             ->willReturn($config);
     }
 
-    /**
-     * @param array<array-key, mixed> $config
-     *
-     * @dataProvider configResultingInException
-     */
+    /** @param array<array-key, mixed> $config */
+    #[DataProvider('configResultingInException')]
     public function testThatAMissingServerTokenWillCauseAnException(array $config): void
     {
         $this->containerWillReturnConfig($config);

@@ -6,6 +6,7 @@ namespace Netglue\PsrContainer\PostmarkTest;
 
 use Netglue\PsrContainer\Postmark\AdminClientFactory;
 use Netglue\PsrContainer\Postmark\Exception\MissingAccountKey;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Postmark\PostmarkAdminClient;
@@ -24,7 +25,7 @@ class AdminClientFactoryTest extends TestCase
     }
 
     /** @return array<string, array{0: mixed[]}> */
-    public function configResultingInException(): array
+    public static function configResultingInException(): array
     {
         return [
             'Empty Array' => [[]],
@@ -47,11 +48,8 @@ class AdminClientFactoryTest extends TestCase
             ->willReturn($config);
     }
 
-    /**
-     * @param array<array-key, mixed> $config
-     *
-     * @dataProvider configResultingInException
-     */
+    /** @param array<array-key, mixed> $config */
+    #[DataProvider('configResultingInException')]
     public function testThatAMissingAccountTokenWillCauseAnException(array $config): void
     {
         $this->containerWillReturnConfig($config);
