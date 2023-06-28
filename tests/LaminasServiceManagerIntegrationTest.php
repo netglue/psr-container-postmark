@@ -28,34 +28,24 @@ class LaminasServiceManagerIntegrationTest extends TestCase
 
     private function setupDependencies(): void
     {
-        $this->container->setFactory(
-            'RegularServerClient',
-            ClientFactory::class,
-        );
-
-        $this->container->setFactory(
-            'ServerClientCallStatic',
-            new ClientFactory('postmark_static_test'),
-        );
-
-        $this->container->setFactory(
-            'RegularAccountClient',
-            AdminClientFactory::class,
-        );
-
-        $this->container->setFactory(
-            'AccountClientCallStatic',
-            new AdminClientFactory('postmark_static_test'),
-        );
-
-        $this->container->setService('config', [
-            'postmark' => [
-                'server_token' => 'Foo',
-                'account_token' => 'Bar',
+        $this->container = new ServiceManager([
+            'factories' => [
+                'RegularServerClient' => ClientFactory::class,
+                'ServerClientCallStatic' => [ClientFactory::class, 'postmark_static_test'],
+                'RegularAccountClient' => AdminClientFactory::class,
+                'AccountClientCallStatic' => [AdminClientFactory::class, 'postmark_static_test'],
             ],
-            'postmark_static_test' => [
-                'server_token' => 'Foo',
-                'account_token' => 'Bar',
+            'services' => [
+                'config' => [
+                    'postmark' => [
+                        'server_token' => 'Foo',
+                        'account_token' => 'Bar',
+                    ],
+                    'postmark_static_test' => [
+                        'server_token' => 'Foo',
+                        'account_token' => 'Bar',
+                    ],
+                ],
             ],
         ]);
     }
