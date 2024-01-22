@@ -72,8 +72,10 @@ class LaminasServiceManagerIntegrationTest extends TestCase
         );
         /** @psalm-var ServiceManagerConfiguration $dependencies */
         $dependencies = $config['dependencies'];
+        $dependencies['services'] ??= [];
         unset($dependencies['services']['config']);
         $dependencies['services']['config'] = $config;
+        /** @psalm-var ServiceManagerConfiguration $dependencies */
         $container = new ServiceManager($dependencies);
 
         self::assertInstanceOf(PostmarkClient::class, $container->get(PostmarkClient::class));
