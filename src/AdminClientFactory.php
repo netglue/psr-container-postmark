@@ -19,7 +19,7 @@ final class AdminClientFactory extends BaseFactory
     {
         $config = $this->retrieveConfig($container);
         $token  = $config['account_token'] ?? null;
-        if (empty($token) || ! is_string($token)) {
+        if (! is_string($token) || $token === '') {
             throw MissingAccountKey::withConfigPath(sprintf('[%s][account_token]', $this->section));
         }
 

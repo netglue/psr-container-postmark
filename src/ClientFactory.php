@@ -19,7 +19,7 @@ final class ClientFactory extends BaseFactory
     {
         $config = $this->retrieveConfig($container);
         $token  = $config['server_token'] ?? null;
-        if (empty($token) || ! is_string($token)) {
+        if (! is_string($token) || $token === '') {
             throw MissingServerKey::withConfigPath(sprintf('[%s][server_token]', $this->section));
         }
 
