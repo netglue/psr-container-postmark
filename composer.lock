@@ -652,16 +652,16 @@
         },
         {
             "name": "wildbit/postmark-php",
-            "version": "v6.0.6",
+            "version": "v6.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ActiveCampaign/postmark-php.git",
-                "reference": "610d78a5eb7b00ae9fe65b9435e51cc376da00f4"
+                "reference": "3c2c848c60d602e2da6dddaa12529cb9a247a223"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ActiveCampaign/postmark-php/zipball/610d78a5eb7b00ae9fe65b9435e51cc376da00f4",
-                "reference": "610d78a5eb7b00ae9fe65b9435e51cc376da00f4",
+                "url": "https://api.github.com/repos/ActiveCampaign/postmark-php/zipball/3c2c848c60d602e2da6dddaa12529cb9a247a223",
+                "reference": "3c2c848c60d602e2da6dddaa12529cb9a247a223",
                 "shasum": ""
             },
             "require": {
@@ -686,9 +686,9 @@
             "description": "The officially supported client for Postmark (http://postmarkapp.com)",
             "support": {
                 "issues": "https://github.com/ActiveCampaign/postmark-php/issues",
-                "source": "https://github.com/ActiveCampaign/postmark-php/tree/v6.0.6"
+                "source": "https://github.com/ActiveCampaign/postmark-php/tree/v6.0.7"
             },
-            "time": "2024-01-17T14:31:04+00:00"
+            "time": "2024-03-27T14:41:07+00:00"
         }
     ],
     "packages-dev": [
