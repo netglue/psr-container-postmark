@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Netglue\PsrContainer\PostmarkTest;
 
 use Netglue\PsrContainer\Postmark\AdminClientFactory;
+use Netglue\PsrContainer\Postmark\BaseFactory;
 use Netglue\PsrContainer\Postmark\Exception\MissingAccountKey;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -74,6 +75,7 @@ class AdminClientFactoryTest extends TestCase
         self::assertTrue(true);
     }
 
+    /** @see BaseFactory::__callStatic */
     public function testThatCallStaticWillUseTheCorrectConfiguration(): void
     {
         $config = [

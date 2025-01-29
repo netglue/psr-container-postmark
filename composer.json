@@ -15,12 +15,12 @@
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "platform": {
-            "php": "8.1.99"
+            "php": "8.2.99"
         }
     },
     "require": {
-        "php": "~8.1 || ~8.2 || ~8.3",
-        "wildbit/postmark-php": "^2.9||^3.0||^4.0 || ^6.0",
+        "php": "~8.2 || ~8.3 || ~8.4",
+        "wildbit/postmark-php": "^2.9||^3.0||^4.0||^6.0",
         "psr/container": "^1.0.0 || ^2.0.0"
     },
     "autoload": {
@@ -35,11 +35,11 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^12.0",
-        "laminas/laminas-servicemanager": "^3.22.1",
-        "phpunit/phpunit": "^10.5.9",
-        "psalm/plugin-phpunit": "^0.19.0",
+        "laminas/laminas-servicemanager": "^3.23.0 || ^4.3.0",
+        "phpunit/phpunit": "^11.5.5",
+        "psalm/plugin-phpunit": "^0.19.2",
         "roave/security-advisories": "dev-latest",
-        "vimeo/psalm": "^5.20.0"
+        "vimeo/psalm": "^6.0.0"
     },
     "scripts": {
         "check": [

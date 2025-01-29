@@ -25,7 +25,11 @@ abstract class BaseFactory
 
     abstract public function __invoke(ContainerInterface $container): PostmarkClient|PostmarkAdminClient;
 
-    /** @param array<array-key, mixed> $arguments */
+    /**
+     * @param array<array-key, mixed> $arguments
+     *
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     final public static function __callStatic(string $name, array $arguments): PostmarkClient|PostmarkAdminClient
     {
         if (! array_key_exists(0, $arguments) || ! $arguments[0] instanceof ContainerInterface) {

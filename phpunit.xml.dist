@@ -8,8 +8,13 @@
          displayDetailsOnTestsThatTriggerErrors="true"
          displayDetailsOnTestsThatTriggerNotices="true"
          displayDetailsOnTestsThatTriggerWarnings="true"
+         displayDetailsOnPhpunitDeprecations="true"
+         failOnWarning="true"
+         failOnPhpunitDeprecation="true"
+         failOnDeprecation="true"
+         failOnNotice="true"
          colors="true">
-    <source>
+    <source restrictWarnings="true" restrictNotices="true" ignoreIndirectDeprecations="true">
         <include>
             <directory suffix=".php">./src</directory>
         </include>
