@@ -15,6 +15,7 @@ use function sprintf;
 
 final class ClientFactory extends BaseFactory
 {
+    /** @psalm-suppress PossiblyUnusedReturnValue */
     public function __invoke(ContainerInterface $container): PostmarkClient
     {
         $config = $this->retrieveConfig($container);

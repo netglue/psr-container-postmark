@@ -9,3 +9,6 @@
 /phpunit.xml.dist export-ignore
 /tests/ export-ignore
 /.psr-container.php.stub export-ignore
+/renovate.json export-ignore
+/.markdownlint.json export-ignore
+/Makefile export-ignore
