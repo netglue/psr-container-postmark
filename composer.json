@@ -39,7 +39,7 @@
         "phpunit/phpunit": "^11.5.5",
         "psalm/plugin-phpunit": "^0.19.2",
         "roave/security-advisories": "dev-latest",
-        "vimeo/psalm": "^6.0.0"
+        "vimeo/psalm": "^7.0.0"
     },
     "scripts": {
         "check": [
